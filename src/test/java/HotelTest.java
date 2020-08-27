@@ -76,4 +76,12 @@ public class HotelTest {
         assertEquals("Breakfast Room", diningRooms.get("Breakfast Room").getName());
         assertEquals(1, diningRooms.size());
     }
+
+    @Test
+    public void canGetVacantRooms() {
+        BedRoom room = codeClanTowers.getBedrooms().get(0);
+        codeClanTowers.checkIn(room, guest1);
+        assertEquals(24, codeClanTowers.getVacantRooms().size());
+
+    }
 }

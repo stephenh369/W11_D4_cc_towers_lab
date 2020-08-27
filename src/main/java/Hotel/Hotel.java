@@ -6,6 +6,7 @@ import Hotel.Rooms.DiningRoom;
 import Hotel.Rooms.Room;
 
 import java.awt.print.Book;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -49,5 +50,16 @@ public class Hotel {
         Booking newBooking = new Booking(room, nightsBooked);
         this.bookings.add(newBooking);
         return newBooking;
+    }
+
+    public ArrayList<BedRoom> getVacantRooms() {
+        ArrayList<BedRoom> vacantRooms;
+        vacantRooms = new ArrayList<BedRoom>();
+        for (BedRoom i : bedrooms) {
+            if (i.getGuests().size() == 0) {
+                vacantRooms.add(i);
+            }
+        }
+        return vacantRooms;
     }
 }
