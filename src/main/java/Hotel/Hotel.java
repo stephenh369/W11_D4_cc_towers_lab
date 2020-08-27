@@ -2,6 +2,7 @@ package Hotel;
 
 import Hotel.Rooms.BedRoom;
 import Hotel.Rooms.ConferenceRoom;
+import Hotel.Rooms.Room;
 
 import java.util.ArrayList;
 
@@ -21,5 +22,15 @@ public class Hotel {
 
     public ArrayList<ConferenceRoom> getConferenceRooms() {
         return conferenceRooms;
+    }
+
+    public void checkIn(Room room, Guest guest) {
+        if (room.getGuests().size() < room.getCapacity()) {
+            room.addGuest(guest);
+        }
+    }
+
+    public void checkOut(Room room, Guest guest) {
+        room.removeGuest(guest);
     }
 }
