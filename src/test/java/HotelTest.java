@@ -18,6 +18,7 @@ public class HotelTest {
     DiningRoom diningRoom1;
     Guest guest1;
     Guest guest2;
+    ArrayList<Guest> guests;
 
     @Before
     public void before() {
@@ -38,6 +39,9 @@ public class HotelTest {
 
         guest1 = new Guest("Boe Jloggs;");
         guest2 = new Guest("Joe Bloggs");
+        guests = new ArrayList<Guest>();
+        guests.add(guest1);
+        guests.add(guest2);
 
 
         codeClanTowers = new Hotel(bedrooms, conferenceRooms, diningRooms);
@@ -51,15 +55,15 @@ public class HotelTest {
     @Test
     public void canCheckInGuest() {
         BedRoom room = codeClanTowers.getBedrooms().get(0);
-        codeClanTowers.checkIn(room, guest1);
+        codeClanTowers.checkIn(room, guests);
         assertEquals(1, room.getGuests().size());
     }
 
     @Test
     public void canCheckOutGuest() {
         BedRoom room = codeClanTowers.getBedrooms().get(0);
-        codeClanTowers.checkIn(room, guest1);
-        codeClanTowers.checkOut(room, guest1);
+        codeClanTowers.checkIn(room, guests);
+        codeClanTowers.checkOut(room, guests);
         assertEquals(0, room.getGuests().size());
     }
 
@@ -80,7 +84,7 @@ public class HotelTest {
     @Test
     public void canGetVacantRooms() {
         BedRoom room = codeClanTowers.getBedrooms().get(0);
-        codeClanTowers.checkIn(room, guest1);
+        codeClanTowers.checkIn(room, guests);
         assertEquals(24, codeClanTowers.getVacantRooms().size());
 
     }

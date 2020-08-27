@@ -36,14 +36,18 @@ public class Hotel {
         return bookings;
     }
 
-    public void checkIn(Room room, Guest guest) {
-        if (room.getGuests().size() < room.getCapacity()) {
-            room.addGuest(guest);
+    public void checkIn(Room room, ArrayList<Guest> guest) {
+        if (room.isEmpty() ) {
+            for ( Guest i : guest) {
+                room.addGuest(i);
+            }
         }
     }
 
-    public void checkOut(Room room, Guest guest) {
-        room.removeGuest(guest);
+    public void checkOut(Room room, ArrayList<Guest> guest) {
+        for (Guest i : guest) {
+            room.removeGuest(i);
+        }
     }
 
     public Booking bookRoom(BedRoom room, int nightsBooked) {
