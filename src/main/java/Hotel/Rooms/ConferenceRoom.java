@@ -1,4 +1,4 @@
-package Rooms;
+package Hotel.Rooms;
 
 public class ConferenceRoom {
 }
