@@ -23,10 +23,10 @@ public class HotelTest {
     public void before() {
         bedrooms = new ArrayList<BedRoom>();
         for (int i = 0; i < 15; i++) {
-            bedrooms.add(new BedRoom(i, RoomType.SINGLE));
+            bedrooms.add(new BedRoom(i, RoomType.SINGLE, 100.00));
         }
         for (int i = 0; i < 10; i++) {
-            bedrooms.add(new BedRoom(i, RoomType.DOUBLE));
+            bedrooms.add(new BedRoom(i, RoomType.DOUBLE, 120.00));
         }
         conferenceRooms = new ArrayList<ConferenceRoom>();
         conferenceRooms.add(new ConferenceRoom(10, "Room A"));
